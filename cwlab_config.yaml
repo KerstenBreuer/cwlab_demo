@@ -1,0 +1,16 @@
+ENABLE_USERS: True
+
+EXEC_DIR: /mnt/c/Users/kerst/OneDrive/home/demo/exec
+
+ADD_INPUT_AND_UPLOAD_DIRS:
+    DEMO: /mnt/c/Users/kerst/OneDrive/home/demo
+
+EXEC_PROFILES:
+  cwltool_local: 
+    shell: bash
+    
+    exec: |
+      cwltool --no-container \
+        --outdir "${OUTPUT_DIR}" \
+        "${WORKFLOW}" "${RUN_INPUT}" \
+        >> "${LOG_FILE}" 2>&1
